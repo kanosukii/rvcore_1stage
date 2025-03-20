@@ -827,8 +827,8 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="AJJyL7js5qV49KI9puSS-1" value="all memory are all writing syn and reading asyn" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="140" y="-90" width="270" height="30" as="geometry" />
+        <mxCell id="AJJyL7js5qV49KI9puSS-1" value="regfile and data_memory are both writing syn and reading asyn" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="95" y="-90" width="360" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
