@@ -592,7 +592,7 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="lyE28jP4etLyNFMuhpy6-112" value="branch_unit" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="lyE28jP4etLyNFMuhpy6-112" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;branch_unit&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="360" y="-24.5" width="90" height="34.5" as="geometry" />
         </mxCell>
         <mxCell id="lyE28jP4etLyNFMuhpy6-113" value="" style="shape=trapezoid;perimeter=trapezoidPerimeter;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;" vertex="1" parent="1">
@@ -769,6 +769,31 @@
         </mxCell>
         <mxCell id="lyE28jP4etLyNFMuhpy6-147" value="alu_b_ctr" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=4;" vertex="1" connectable="0" parent="lyE28jP4etLyNFMuhpy6-146">
           <mxGeometry x="-0.0658" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lyE28jP4etLyNFMuhpy6-148" value="" style="triangle;whiteSpace=wrap;html=1;rotation=-90;" vertex="1" parent="1">
+          <mxGeometry x="420" y="160" width="10" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="lyE28jP4etLyNFMuhpy6-149" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="424.79" y="210" as="sourcePoint" />
+            <mxPoint x="424.79" y="170" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lyE28jP4etLyNFMuhpy6-150" value="CLK" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=4;" vertex="1" connectable="0" parent="lyE28jP4etLyNFMuhpy6-149">
+          <mxGeometry x="0.379" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lyE28jP4etLyNFMuhpy6-151" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="86.75" y="170" as="sourcePoint" />
+            <mxPoint x="86.25" y="141.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lyE28jP4etLyNFMuhpy6-152" value="CLK" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=4;" vertex="1" connectable="0" parent="lyE28jP4etLyNFMuhpy6-151">
+          <mxGeometry x="-0.116" y="1" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
