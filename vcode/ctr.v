@@ -13,18 +13,20 @@ module ctr(
 	output [3:0]data_mem_opw
 );
 	wire [6:0]op;
-	wire [4:0]rs1,rs2,rd;
-	wire [3:0]fun3;
+//	wire [4:0]rs1,rs2,rd;
+	wire [2:0]fun3;
 	wire [6:0]fun7;
 	wire [31:0]immI,immU,immS,immB,immJ;
 	reg [31:0]out_imm;
 
 	assign  op  = instr[6:0];
+/*
 	assign  rs1 = instr[19:15];
 	assign  rs2 = instr[24:20];
 	assign  rd  = instr[11:7];
-	assign  func3  = instr[14:12];
-	assign  func7  = instr[31:25];
+*/
+	assign  fun3  = instr[14:12];
+	assign  fun7  = instr[31:25];
 
 	assign immI = {{20{instr[31]}}, instr[31:20]};
 	assign immU = {instr[31:12], 12'b0};
@@ -62,14 +64,14 @@ end
 
 	assign alu_b_ctr = (type_R | type_B) ? 1'b0 : 1'b1;
 
-	wire fun3_000 = (fun3 == 3'b000) 1'b1 : 1'b0;
-	wire fun3_001 = (fun3 == 3'b001) 1'b1 : 1'b0;
-	wire fun3_010 = (fun3 == 3'b010) 1'b1 : 1'b0;
-	wire fun3_011 = (fun3 == 3'b011) 1'b1 : 1'b0;
-	wire fun3_100 = (fun3 == 3'b100) 1'b1 : 1'b0;
-	wire fun3_101 = (fun3 == 3'b101) 1'b1 : 1'b0;
-	wire fun3_110 = (fun3 == 3'b110) 1'b1 : 1'b0;
-	wire fun3_111 = (fun3 == 3'b111) 1'b1 : 1'b0;
+	wire fun3_000 = (fun3 == 3'b000) ? 1'b1 : 1'b0;
+	wire fun3_001 = (fun3 == 3'b001) ? 1'b1 : 1'b0;
+	wire fun3_010 = (fun3 == 3'b010) ? 1'b1 : 1'b0;
+	wire fun3_011 = (fun3 == 3'b011) ? 1'b1 : 1'b0;
+	wire fun3_100 = (fun3 == 3'b100) ? 1'b1 : 1'b0;
+	wire fun3_101 = (fun3 == 3'b101) ? 1'b1 : 1'b0;
+	wire fun3_110 = (fun3 == 3'b110) ? 1'b1 : 1'b0;
+	wire fun3_111 = (fun3 == 3'b111) ? 1'b1 : 1'b0;
 	
 	// alu_ctr encode
 	reg [3:0]alu_ctr_temp;
@@ -81,7 +83,7 @@ end
 	if((type_R | op_0010_011) && fun3_011 | type_B && (fun3_110 | fun3_111)) alu_ctr_temp = 4'b0011; //set_ltu 4'b0011 sltu sltiu bltu bgeu 
 	if((type_R | op_0010_011) && fun3_010 | type_B && (fun3_100 | fun3_101)) alu_ctr_temp = 4'b0010; // set_lt 4'b0010 slt slti blt bge
 	if((type_R | op_0010_011) && fun3_100) alu_ctr_temp = 4'b0100; //xor 4'b0100 xor xori 
-	if((type_R | op_0010_011) && fun3_101 && !fun[5]) alu_ctr_temp = 4'b0101; //shift_r 4'b0101 srl srli
+	if((type_R | op_0010_011) && fun3_101 && !fun7[5]) alu_ctr_temp = 4'b0101; //shift_r 4'b0101 srl srli
 	if((type_R | op_0010_011) && fun3_101 && fun7[5]) alu_ctr_temp = 4'b1101; //shift_ra 4'b1101 sra srai
 	if((type_R | op_0010_011) && fun3_110) alu_ctr_temp = 4'b0110; //or 4'b0110 or ori  
 	if((type_R | op_0010_011) && fun3_111) alu_ctr_temp = 4'b0111; //and 4'b0111 and andi
@@ -92,7 +94,7 @@ end
 	assign bxx[3] = type_B;	
 	assign jal = type_J;
 	assign jalr = op_1100_111;	
-	assign reg_we = (type_B | type_S) ? 1'b0 : 1'b1;
+	assign reg_we = (type_B | type_S) ? 1'b1 : 1'b0;
 	assign mem_we = type_S ? 1'b1 : 1'b0;
 	assign data_mem_opr = fun3;
 

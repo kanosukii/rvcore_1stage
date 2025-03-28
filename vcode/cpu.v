@@ -9,8 +9,8 @@ module cpu(
 	wire alu_b_ctr,jal,jalr,reg_we,mem_we,alu_less,alu_zero,branch_ture;
 	reg [31:0]data2reg;
 	instr_memory instr_memory_item(
-		.clk(clk),
-		.addr(pc),
+//		.clk(clk),
+		.addr(pc[17:2]),
 		.instr(instr)
 );
 	regfile regfile_item(
@@ -51,7 +51,7 @@ module cpu(
 		.we(mem_we),
 		.be(data_mem_opw),
 		.op_read(data_mem_opr),
-		.addr(alu_out),
+		.addr(alu_out[14:0]),
 		.wdata(rs2_data),
 		.rdata(data_mem_rdata)
 );
@@ -62,7 +62,7 @@ module cpu(
 		.imm(imm),
 		.cond(pc_cond),
 		.alu_out(alu_out),
-		.normal_pc(branch_pc),
+		.normal_pc(normal_pc),
 		.jal_branch_pc(jal_branch_pc),
 		.pc(pc)
 );

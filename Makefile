@@ -39,6 +39,7 @@ VERILATOR_FLAGS += -x-assign fast
 VERILATOR_FLAGS += -Wall
 VERILATOR_FLAGS += --trace
 VERILATOR_FLAGS += --coverage
+VERILATOR_FLAGS += --Wno-UNUSEDSIGNAL
 #VERILATOR_FLAGS += --build
 VSRCS = $(shell find $(abspath ./vcode) -name "*.v")
 VERILATOR_INPUT = $(VSRCS) sim_main.cpp

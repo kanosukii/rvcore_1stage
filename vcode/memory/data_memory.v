@@ -7,7 +7,7 @@ module data_memory#(
     input wire [3:0] be,           //byte_enable 
 		input wire [2:0] op_read,      //lb lh lw lbu lhu
  //   input wire [ADDR_WIDTH-1:0] addr, //address 
-		input wire [31:0] addr, //address 
+		input wire [ADDR_WIDTH-1:0] addr, //address 
 
     input wire [DATA_WIDTH-1:0] wdata, //write_data 
     output wire [DATA_WIDTH-1:0] rdata  //read_data
@@ -23,7 +23,7 @@ module data_memory#(
 		always @(*)begin
 		rdata_temp = rdata_reg;
 		if(op_read == 3'b000) rdata_temp = {{24{rdata_reg[7]}},rdata_reg[7:0]};
-		if(op_read == 3'b001) rdara_temp = {{16{rdata_reg[15]}},rdata_reg[15:0]};
+		if(op_read == 3'b001) rdata_temp = {{16{rdata_reg[15]}},rdata_reg[15:0]};
 		if(op_read == 3'b010) rdata_temp = rdata_reg;
 		if(op_read == 3'b100) rdata_temp = {{24'b0},rdata_reg[7:0]};
 		if(op_read == 3'b001) rdata_temp = {{16'b0},rdata_reg[15:0]};

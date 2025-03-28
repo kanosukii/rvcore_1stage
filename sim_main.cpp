@@ -58,11 +58,12 @@ int main(int argc, char** argv) {
     // "TOP" will be the hierarchical name of the module.
     const std::unique_ptr<Vtop> top{new Vtop{contextp.get(), "TOP"}};
     // Set Vtop's input signals
-      top->a = 0x0011AB11;//0011_AB11
-      top->b = 0x00232301;//0023_2301
-      top->ctr = 0x0;
+      //top->clk = 0x0011AB11;//0011_AB11
+      //top->b = 0x00232301;//0023_2301
+      //top->ctr = 0x0;
+			top->clk = 0x0;
     // Simulate until $finish
-   for (int t=0; t<3; ++t){       
+   for (int t=0; t<30; ++t){       
  // Historical note, before Verilator 4.200 Verilated::gotFinish()
         // was used above in place of contextp->gotFinish().
         // Most of the contextp-> calls can use Verilated:: calls instead;
@@ -75,12 +76,7 @@ int main(int argc, char** argv) {
         // function was required instead of using timeInc.  Once timeInc()
         // is called (with non-zero), the Verilated libraries assume the
         // new API, and sc_time_stamp() will no longer work.
-	if(t==0){
-			top->a=0x0011AB11; top->b=0x00232301; top->ctr=0x0;}
-	else if(t==1){
-			                    top->ctr=0xd;}
-	else if(t==2){
-							;}
+				top->clk = !top->clk;
 
         // Toggle a fast (time/2 period) clock
 //        top->clk = !top->clk;
@@ -109,10 +105,9 @@ int main(int argc, char** argv) {
 //                  " owide=%x_%08x_%08x\n",
 //                  contextp->time(), top->clk, top->reset_l, top->in_quad, top->out_quad,
 //                  top->out_wide[2], top->out_wide[1], top->out_wide[0]);
-//    }
-	VL_PRINTF("[%" PRId64 "] a=%x b=%x ctr=%x out=%x is_less=%x is_zero=%x\n",
-		    contextp->time(), top->a, top->b, top->ctr, top->out, top->is_less, top->is_zero);
-}
+}   
+/*	VL_PRINTF("[%" PRId64 "] a=%x b=%x ctr=%x out=%x is_less=%x is_zero=%x\n",
+		    contextp->time(), top->a, top->b, top->ctr, top->out, top->is_less, top->is_zero);*/
     // Final model cleanup
     top->final();
     // Coverage analysis (calling write only after the test is known to pass)
