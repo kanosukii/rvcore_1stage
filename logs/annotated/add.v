@@ -1,11 +1,11 @@
 //      // verilator_coverage annotation
         module add(
 %000001 	input [31:0]a,
-%000001 	input [31:0]b,
-%000001 	input cin,
+%000002 	input [31:0]b,
+%000003 	input cin,
 %000001 	output [31:0]sum,
-%000001 	output carry,
-%000001 	output zero,
+%000003 	output carry,
+%000005 	output zero,
 %000001 	output overflow
         );
         //	wire temp[30:0];

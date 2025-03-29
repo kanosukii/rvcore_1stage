@@ -77,13 +77,13 @@ end
 	reg [3:0]alu_ctr_temp;
 	always @(*)begin
 	alu_ctr_temp = 4'b0000;
-	if((type_R && fun3_000 && !fun7[5]) | op_1100_111 | (op_0010_011 && fun3_000) | op_0100_011 | op_0000_011) alu_ctr_temp = 4'b0000; //add 4'b0000  add jalr addi sb sh sw lb lh lw lbu lhu num=11
-	if(type_R && fun3_000 && fun7[5] | type_B && (fun3_000 | fun3_001)) alu_ctr_temp = 4'b1000; //sub 4'b1000 sub beq bne
-	if((type_R |  op_0010_011) && fun3_001) alu_ctr_temp = 4'b0001; //shift_l 4'b0001 sll slli
-	if((type_R | op_0010_011) && fun3_011 | type_B && (fun3_110 | fun3_111)) alu_ctr_temp = 4'b0011; //set_ltu 4'b0011 sltu sltiu bltu bgeu 
-	if((type_R | op_0010_011) && fun3_010 | type_B && (fun3_100 | fun3_101)) alu_ctr_temp = 4'b0010; // set_lt 4'b0010 slt slti blt bge
-	if((type_R | op_0010_011) && fun3_100) alu_ctr_temp = 4'b0100; //xor 4'b0100 xor xori 
-	if((type_R | op_0010_011) && fun3_101 && !fun7[5]) alu_ctr_temp = 4'b0101; //shift_r 4'b0101 srl srli
+	if((type_R && fun3_000 && !fun7[5]) || op_1100_111 || (op_0010_011 && fun3_000) || op_0100_011 || op_0000_011) alu_ctr_temp = 4'b0000; //add 4'b0000  add jalr addi sb sh sw lb lh lw lbu lhu num=11
+	if((type_R && fun3_000 && fun7[5]) || (type_B && (fun3_000 || fun3_001))) alu_ctr_temp = 4'b1000; //sub 4'b1000 sub beq bne
+	if((type_R ||  op_0010_011) && fun3_001) alu_ctr_temp = 4'b0001; //shift_l 4'b0001 sll slli
+	if((type_R || op_0010_011) && fun3_011 || (type_B && (fun3_110 || fun3_111))) alu_ctr_temp = 4'b0011; //set_ltu 4'b0011 sltu sltiu bltu bgeu 
+	if(((type_R || op_0010_011) && fun3_010) || (type_B && (fun3_100 || fun3_101))) alu_ctr_temp = 4'b0010; // set_lt 4'b0010 slt slti blt bge
+	if((type_R || op_0010_011) && fun3_100) alu_ctr_temp = 4'b0100; //xor 4'b0100 xor xori 
+	if((type_R || op_0010_011) && (fun3_101 && !fun7[5])) alu_ctr_temp = 4'b0101; //shift_r 4'b0101 srl srli
 	if((type_R | op_0010_011) && fun3_101 && fun7[5]) alu_ctr_temp = 4'b1101; //shift_ra 4'b1101 sra srai
 	if((type_R | op_0010_011) && fun3_110) alu_ctr_temp = 4'b0110; //or 4'b0110 or ori  
 	if((type_R | op_0010_011) && fun3_111) alu_ctr_temp = 4'b0111; //and 4'b0111 and andi

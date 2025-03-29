@@ -1,13 +1,13 @@
 //      // verilator_coverage annotation
         module cpu(
- 000010 	input clk
+ 000022 	input clk
         );
 %000000 	wire [31:0]pc,instr,rs1_data,rs2_data,imm,alu_b,alu_out,data_mem_rdata,normal_pc;
 %000001 	wire [31:0]jal_branch_pc,data2reg_wire;
 %000001 	wire [3:0]alu_ctr,bxx,data_mem_opw;
 %000001 	wire [2:0]mem2reg,data_mem_opr;
 %000000 	wire [1:0]pc_cond;
-%000001 	wire alu_b_ctr,jal,jalr,reg_we,mem_we,alu_less,alu_zero,branch_ture;
+%000003 	wire alu_b_ctr,jal,jalr,reg_we,mem_we,alu_less,alu_zero,branch_ture;
 %000001 	reg [31:0]data2reg;
         	instr_memory instr_memory_item(
         //		.clk(clk),
@@ -76,10 +76,10 @@
 %000001 		always @(*)begin
 %000001 		data2reg = alu_out;
 %000000 		if(mem2reg == 3'b000) data2reg = alu_out;
-%000005 		if(mem2reg == 3'b001) data2reg = data_mem_rdata;
-%000005 		if(mem2reg == 3'b010) data2reg = normal_pc;
-%000005 		if(mem2reg == 3'b011) data2reg = imm;
-%000005 		if(mem2reg == 3'b100) data2reg = jal_branch_pc;
+ 000011 		if(mem2reg == 3'b001) data2reg = data_mem_rdata;
+ 000011 		if(mem2reg == 3'b010) data2reg = normal_pc;
+ 000011 		if(mem2reg == 3'b011) data2reg = imm;
+ 000011 		if(mem2reg == 3'b100) data2reg = jal_branch_pc;
         end	
         		assign data2reg_wire = data2reg;
         endmodule

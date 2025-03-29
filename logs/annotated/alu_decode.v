@@ -1,8 +1,8 @@
 //      // verilator_coverage annotation
         module alu_decode(
 %000001   input [3:0]alu_ctr,
-%000000   output is_add,
-%000000 	output is_sub,
+%000002   output is_add,
+%000002 	output is_sub,
 %000000   output is_shift_l,
 %000000   output is_set_lt,
 %000000   output is_set_ltu,
