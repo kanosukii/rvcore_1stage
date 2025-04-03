@@ -8,7 +8,7 @@
         (
         //	input clk,
 %000000 	input [ADDR_WIDTH-1:0]addr, 
-%000001 	output [DATA_WIDTH-1:0]instr
+%000009 	output [DATA_WIDTH-1:0]instr
         );
         //	reg [DATA_WIDTH-1:0]mem[0:(1 << ADDR_WIDTH) - 1]
         	reg [DATA_WIDTH-1:0]mem[0:(1 << 16) - 1];

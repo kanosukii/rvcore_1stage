@@ -34,7 +34,7 @@ class Vtop__Syms final : public VerilatedSyms {
     Vtop___024root                 TOP;
 
     // COVERAGE
-    std::atomic<uint32_t> __Vcoverage[1023];
+    std::atomic<uint32_t> __Vcoverage[971];
 
     // CONSTRUCTORS
     Vtop__Syms(VerilatedContext* contextp, const char* namep, Vtop* modelp);

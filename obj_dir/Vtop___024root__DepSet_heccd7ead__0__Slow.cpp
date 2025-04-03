@@ -268,7 +268,6 @@ VL_ATTR_COLD void Vtop___024root___ctor_var_reset(Vtop___024root* vlSelf) {
     }
     vlSelf->top__DOT__cpu_item__DOT__data_memory_item__DOT__rdata_temp = VL_RAND_RESET_I(32);
     vlSelf->top__DOT__cpu_item__DOT__data_memory_item__DOT__rdata_reg = VL_RAND_RESET_I(32);
-    vlSelf->top__DOT__cpu_item__DOT__data_memory_item__DOT____Vtogcov__rdata_reg = VL_RAND_RESET_I(32);
     vlSelf->top__DOT__cpu_item__DOT__pc_item__DOT__next_pc = VL_RAND_RESET_I(32);
     vlSelf->top__DOT__cpu_item__DOT__pc_branch_item__DOT__branch_ture_temp = VL_RAND_RESET_I(1);
     vlSelf->top__DOT__cpu_item__DOT__pc_branch_item__DOT____Vtogcov__branch_ture_temp = VL_RAND_RESET_I(1);

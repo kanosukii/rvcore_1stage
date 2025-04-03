@@ -1,0 +1,48 @@
+
+test.o:     file format elf32-littleriscv
+
+
+Disassembly of section .text:
+
+00000000 <_start>:
+   0:	00a00093          	li	ra,10
+   4:	01400113          	li	sp,20
+   8:	ffb00193          	li	gp,-5
+   c:	0ff00213          	li	tp,255
+  10:	002082b3          	add	t0,ra,sp
+  14:	40110333          	sub	t1,sp,ra
+  18:	00508393          	addi	t2,ra,5
+  1c:	12345437          	lui	s0,0x12345
+  20:	0040f4b3          	and	s1,ra,tp
+  24:	0040e533          	or	a0,ra,tp
+  28:	0040c5b3          	xor	a1,ra,tp
+  2c:	00f0f613          	andi	a2,ra,15
+  30:	003096b3          	sll	a3,ra,gp
+  34:	0030d733          	srl	a4,ra,gp
+  38:	4030d7b3          	sra	a5,ra,gp
+  3c:	0011a833          	slt	a6,gp,ra
+  40:	0011b8b3          	sltu	a7,gp,ra
+  44:	00208863          	beq	ra,sp,54 <label1>
+  48:	00209863          	bne	ra,sp,58 <label2>
+  4c:	0011c863          	blt	gp,ra,5c <label3>
+  50:	0020d863          	bge	ra,sp,60 <label4>
+
+00000054 <label1>:
+  54:	0200006f          	j	74 <label_end>
+
+00000058 <label2>:
+  58:	01c0006f          	j	74 <label_end>
+
+0000005c <label3>:
+  5c:	0180006f          	j	74 <label_end>
+
+00000060 <label4>:
+  60:	0140006f          	j	74 <label_end>
+  64:	00000917          	auipc	s2,0x0
+  68:	00090913          	mv	s2,s2
+  6c:	00092983          	lw	s3,0(s2) # 64 <label4+0x4>
+  70:	01392223          	sw	s3,4(s2)
+
+00000074 <label_end>:
+  74:	00000013          	nop
+  78:	ffdff06f          	j	74 <label_end>

@@ -139,16 +139,15 @@ class Vtop___024root final : public VerilatedModule {
         IData/*31:0*/ top__DOT__cpu_item__DOT__ctr_item__DOT____Vtogcov__immJ;
         IData/*31:0*/ top__DOT__cpu_item__DOT__data_memory_item__DOT__rdata_temp;
         IData/*31:0*/ top__DOT__cpu_item__DOT__data_memory_item__DOT__rdata_reg;
-        IData/*31:0*/ top__DOT__cpu_item__DOT__data_memory_item__DOT____Vtogcov__rdata_reg;
         IData/*31:0*/ top__DOT__cpu_item__DOT__pc_item__DOT__next_pc;
         IData/*31:0*/ __VstlIterCount;
         IData/*31:0*/ __VicoIterCount;
         IData/*31:0*/ __VactIterCount;
         VlUnpacked<IData/*31:0*/, 65536> top__DOT__cpu_item__DOT__instr_memory_item__DOT__mem;
         VlUnpacked<IData/*31:0*/, 32> top__DOT__cpu_item__DOT__regfile_item__DOT__register;
+        VlUnpacked<IData/*31:0*/, 32768> top__DOT__cpu_item__DOT__data_memory_item__DOT__mem;
     };
     struct {
-        VlUnpacked<IData/*31:0*/, 32768> top__DOT__cpu_item__DOT__data_memory_item__DOT__mem;
         VlUnpacked<CData/*0:0*/, 2> __Vm_traceActivity;
     };
     VlTriggerVec<1> __VstlTriggered;

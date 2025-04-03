@@ -1,9 +1,9 @@
 //      // verilator_coverage annotation
         module barrel_shifter (
 %000001     input  wire [31:0] data_in,  // Input data
-%000001     input  wire [4:0]  shift_amt, // Shift amount (5 bits → up to 31)
-%000001     input  wire [1:0]  shift_type, // Shift type: 00 = SLL, 01 = SRL, 11 = SRA
-%000001     output wire [31:0] data_out   // Shifted output
+%000007     input  wire [4:0]  shift_amt, // Shift amount (5 bits → up to 31)
+%000005     input  wire [1:0]  shift_type, // Shift type: 00 = SLL, 01 = SRL, 11 = SRA
+%000005     output wire [31:0] data_out   // Shifted output
         );
         
 %000001     wire [31:0] stage1, stage2, stage3, stage4, stage5;

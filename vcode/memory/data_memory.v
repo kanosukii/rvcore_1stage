@@ -14,7 +14,7 @@ module data_memory#(
 );
 
     // 128KB memory，32-bit one line
-    reg [DATA_WIDTH-1:0] mem [0:(1 << ADDR_WIDTH)-1];
+    reg [DATA_WIDTH-1:0] mem [0:(1 << ADDR_WIDTH)-1]/*verilator coverage_off*/ ;
 		reg [DATA_WIDTH-1:0]rdata_temp;
 		reg [31:0]rdata_reg;
 
@@ -26,7 +26,7 @@ module data_memory#(
 		if(op_read == 3'b001) rdata_temp = {{16{rdata_reg[15]}},rdata_reg[15:0]};
 		if(op_read == 3'b010) rdata_temp = rdata_reg;
 		if(op_read == 3'b100) rdata_temp = {{24'b0},rdata_reg[7:0]};
-		if(op_read == 3'b001) rdata_temp = {{16'b0},rdata_reg[15:0]};
+		if(op_read == 3'b101) rdata_temp = {{16'b0},rdata_reg[15:0]};
 end
 	assign rdata = rdata_temp;
 

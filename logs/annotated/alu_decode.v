@@ -1,16 +1,16 @@
 //      // verilator_coverage annotation
         module alu_decode(
-%000001   input [3:0]alu_ctr,
-%000002   output is_add,
-%000002 	output is_sub,
-%000000   output is_shift_l,
-%000000   output is_set_lt,
-%000000   output is_set_ltu,
-%000001   output is_xor,
-%000000   output is_shift_r,
-%000000 	output is_shift_ra,
-%000001   output is_or,
-%000000   output is_and
+%000007   input [3:0]alu_ctr,
+ 000016   output is_add,
+%000006 	output is_sub,
+%000004   output is_shift_l,
+%000008   output is_set_lt,
+%000008   output is_set_ltu,
+%000005   output is_xor,
+%000004   output is_shift_r,
+%000004 	output is_shift_ra,
+%000005   output is_or,
+%000004   output is_and
         );
           assign is_add       = (alu_ctr==4'b0000)? 1'b1:1'b0; 
         	assign is_sub				= (alu_ctr==4'b1000)? 1'b1:1'b0;

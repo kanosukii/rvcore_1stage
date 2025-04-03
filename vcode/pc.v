@@ -14,7 +14,9 @@ module pc(
 	always @(posedge clk)begin
 	if(cond==2'b00) next_pc <= normal_pc;
 	if(cond==2'b01) next_pc <= jal_branch_pc;
+	if(cond==2'b10) next_pc <= alu_out;
 	if(cond==2'b11) next_pc <= alu_out;
+
 end
 	assign pc = next_pc;
 endmodule

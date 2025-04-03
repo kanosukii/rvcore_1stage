@@ -1,0 +1,51 @@
+
+chatgpt.o:     file format elf32-littleriscv
+
+
+Disassembly of section .text:
+
+00000000 <_start>:
+   0:	123452b7          	lui	t0,0x12345
+   4:	67828293          	addi	t0,t0,1656 # 12345678 <end_program+0x123455e4>
+   8:	87654337          	lui	t1,0x87654
+   c:	32130313          	addi	t1,t1,801 # 87654321 <end_program+0x8765428d>
+  10:	01000393          	li	t2,16
+  14:	00000a97          	auipc	s5,0x0
+  18:	000a8a93          	mv	s5,s5
+  1c:	005aa023          	sw	t0,0(s5) # 14 <_start+0x14>
+  20:	006aa223          	sw	t1,4(s5)
+  24:	007aa423          	sw	t2,8(s5)
+  28:	000aab03          	lw	s6,0(s5)
+  2c:	004aab83          	lw	s7,4(s5)
+  30:	008aa503          	lw	a0,8(s5)
+  34:	017b05b3          	add	a1,s6,s7
+  38:	417b0633          	sub	a2,s6,s7
+  3c:	017b7833          	and	a6,s6,s7
+  40:	017b68b3          	or	a7,s6,s7
+  44:	017b4433          	xor	s0,s6,s7
+  48:	00ab14b3          	sll	s1,s6,a0
+  4c:	00ab5933          	srl	s2,s6,a0
+  50:	40ab59b3          	sra	s3,s6,a0
+  54:	017b2a33          	slt	s4,s6,s7
+  58:	017b3ab3          	sltu	s5,s6,s7
+  5c:	005b0693          	addi	a3,s6,5
+  60:	0ffb7713          	zext.b	a4,s6
+  64:	0aab4793          	xori	a5,s6,170
+  68:	0ffb6813          	ori	a6,s6,255
+  6c:	100b2893          	slti	a7,s6,256
+  70:	017b0a63          	beq	s6,s7,84 <label_equal>
+  74:	017b1c63          	bne	s6,s7,8c <label_not_equal>
+  78:	00001e37          	lui	t3,0x1
+  7c:	000e0ee7          	jalr	t4,t3 # 1000 <end_program+0xf6c>
+  80:	0140006f          	j	94 <end_program>
+
+00000084 <label_equal>:
+  84:	00100b93          	li	s7,1
+  88:	00c0006f          	j	94 <end_program>
+
+0000008c <label_not_equal>:
+  8c:	00200b93          	li	s7,2
+  90:	0040006f          	j	94 <end_program>
+
+00000094 <end_program>:
+  94:	0000006f          	j	94 <end_program>
