@@ -84,9 +84,9 @@ end
 	if(((type_R || op_0010_011) && fun3_010) || (type_B && (fun3_100 || fun3_101))) alu_ctr_temp = 4'b0010; // set_lt 4'b0010 slt slti blt bge
 	if((type_R || op_0010_011) && fun3_100) alu_ctr_temp = 4'b0100; //xor 4'b0100 xor xori 
 	if((type_R || op_0010_011) && (fun3_101 && !fun7[5])) alu_ctr_temp = 4'b0101; //shift_r 4'b0101 srl srli
-	if((type_R | op_0010_011) && fun3_101 && fun7[5]) alu_ctr_temp = 4'b1101; //shift_ra 4'b1101 sra srai
-	if((type_R | op_0010_011) && fun3_110) alu_ctr_temp = 4'b0110; //or 4'b0110 or ori  
-	if((type_R | op_0010_011) && fun3_111) alu_ctr_temp = 4'b0111; //and 4'b0111 and andi
+	if((type_R || op_0010_011) && fun3_101 && fun7[5]) alu_ctr_temp = 4'b1101; //shift_ra 4'b1101 sra srai
+	if((type_R || op_0010_011) && fun3_110) alu_ctr_temp = 4'b0110; //or 4'b0110 or ori  
+	if((type_R || op_0010_011) && fun3_111) alu_ctr_temp = 4'b0111; //and 4'b0111 and andi
 end
 	assign alu_ctr = alu_ctr_temp;
 
@@ -94,7 +94,7 @@ end
 	assign bxx[3] = type_B;	
 	assign jal = type_J;
 	assign jalr = op_1100_111;	
-	assign reg_we = (type_B | type_S) ? 1'b1 : 1'b0;
+	assign reg_we = (type_B || type_S) ? 1'b1 : 1'b0;
 	assign mem_we = type_S ? 1'b1 : 1'b0;
 	assign data_mem_opr = fun3;
 
@@ -110,9 +110,9 @@ end
 	reg [2:0]mem2reg_temp;
 	always @(*)begin
 	mem2reg_temp = 3'b000;
-	if(type_R | op_0010_011) mem2reg_temp = 3'b000;	//result out
+	if(type_R || op_0010_011) mem2reg_temp = 3'b000;	//result out
 	if(op_0000_011) mem2reg_temp = 3'b001; //data_mem out
-	if(type_J | op_1100_111) mem2reg_temp = 3'b010; //normal_pc out
+	if(type_J || op_1100_111) mem2reg_temp = 3'b010; //normal_pc out
 	if(op_0110_111) mem2reg_temp = 3'b011; //immediate_number out
 	if(op_0010_111) mem2reg_temp = 3'b100; //pc + immediate_number out
 end

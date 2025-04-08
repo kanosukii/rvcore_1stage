@@ -7,7 +7,7 @@ cpu cpu_item(
 //	$readme();
 	 initial begin
 		$readmemh("./tcode/mytest/test.hex", cpu_item.instr_memory_item.mem,0);	
-    $display("mem[0] = %h", cpu_item.instr_memory_item.mem[0]);
+//    $display("mem[0] = %h", cpu_item.instr_memory_item.mem[0]);
 
 /*
 		cpu_item.instr_memory_item.mem[0] = 32'h00a00093;
