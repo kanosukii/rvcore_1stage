@@ -1,7 +1,7 @@
 module top(
 	 input clk
 );
-cpu cpu_item(
+(* verilator public *) cpu cpu_item(
 	 .clk(clk)
 ); 
 //	$readme();

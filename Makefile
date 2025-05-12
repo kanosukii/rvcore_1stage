@@ -38,13 +38,14 @@ VERILATOR_FLAGS += -cc --exe
 VERILATOR_FLAGS += -x-assign fast
 VERILATOR_FLAGS += -Wall
 VERILATOR_FLAGS += --trace
+VERILATOR_FLAGS += --public
 VERILATOR_FLAGS += --coverage
 VERILATOR_FLAGS += --Wno-UNUSEDSIGNAL
 #VERILATOR_FLAGS += --build
 VSRCS = $(shell find $(abspath ./vcode) -name "*.v")
 VERILATOR_INPUT = $(VSRCS) sim_main.cpp
 default:
-	@echo "-- Verilator hello-world simple example"
+	@echo "-- Verilator"
 	@echo "-- VERILATE & BUILD --------"
 
 	$(VERILATOR) $(VERILATOR_FLAGS) $(VERILATOR_INPUT) --top-module top
@@ -61,9 +62,7 @@ default:
 	$(VERILATOR_COVERAGE) --annotate logs/annotated logs/coverage.dat
 #	obj_dir/Vtop
 	@echo "-- DONE --------------------"
-	@echo "Note: Once this example is understood, see examples/make_tracing_c."
-	@echo "Note: See also https://verilator.org/guide/latest/examples.html"
-
+	gtkwave ./logs/vlt_dump.vcd &
 ######################################################################
 
 maintainer-copy::

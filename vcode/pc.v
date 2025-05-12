@@ -10,7 +10,7 @@ module pc(
 );
 	assign normal_pc = pc + 32'd4;
 	assign jal_branch_pc = pc + imm;
-	reg [31:0]next_pc;
+	(* verilator public *) reg [31:0]next_pc;
 	always @(posedge clk)begin
 	if(cond==2'b00) next_pc <= normal_pc;
 	if(cond==2'b01) next_pc <= jal_branch_pc;

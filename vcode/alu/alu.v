@@ -56,7 +56,7 @@ end
   assign out_or = a | b;
   assign out_xor= a ^ b;
   
-  assign out_less= is_set_ltu ? out_carry : (out_add[31] ^ out_overflow);
+  assign out_less= is_set_ltu ? (~out_carry) : (out_add[31] ^ out_overflow);
 	wire add_sub = is_add | is_sub; // common add sub
   wire shift_lr= is_shift_l | is_shift_r | is_shift_ra; //shift left right logic and else
 	wire set_l  = is_set_lt | is_set_ltu; // set less than or unsign
